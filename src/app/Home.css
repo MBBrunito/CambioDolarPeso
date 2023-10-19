@@ -1,0 +1,62 @@
+.dolares {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.dolares h1 {
+   font-size: 2.5vw;
+   margin: 0;
+   color: blue;
+}
+
+.cambioMoneda {
+   display: flex;
+   padding: 1vw;
+}
+.cambioMoneda p {
+   margin: 0;
+}
+
+.listaDolar {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1vw;
+   width: 70vw;
+}
+
+.dolarCard {
+   padding: 1vw;
+   border: 0.2rem solid grey;
+   width: 15vw;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.tituloDolar h3 {
+   margin: 0;
+   font-size: 1.5vw;
+   color: dodgerblue;
+}
+.tituloDolar p {
+   margin: 0;
+   font-size: 1.3vw;
+}
+.valorDolar h3 {
+   margin: 0;
+   font-size: 1.5vw;
+   color: dodgerblue;
+}
+.valorDolar p {
+   margin: 0;
+   font-size: 1.3vw;
+}
+.fechaHora h3{
+   margin: 0;
+   font-size: 1vw;
+   color: dodgerblue;
+}
+.fechaHora p{
+   margin: 0;
+   font-size: 0.8vw;
+}
