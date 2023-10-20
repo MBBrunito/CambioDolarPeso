@@ -5,6 +5,8 @@ export default function Dolares({ valores }) {
    const [dolar, setDolar] = useState(1);
    const [moneda, setMoneda] = useState("US");
 
+   const formatoNumero = new Intl.NumberFormat("es-AR", { style: "decimal" });
+
    const handleChange = (event) => {
       event.preventDefault();
       console.log(event.target.value);
@@ -48,14 +50,42 @@ export default function Dolares({ valores }) {
                      <h3>Valor Compra</h3>
                      <div>
                         {moneda === "US" ? (
-                           <div className="conversion">
-                              <p>$ {(valor.compra * dolar).toFixed(2)}</p>
-                              <p>U$D {dolar}</p>
+                           <div>
+                              {valor.compra < 1 ? (
+                                 <div className="conversion">
+                                    <p>$ ---</p>
+                                    <p>U$D ---</p>
+                                 </div>
+                              ) : (
+                                 <div className="conversion">
+                                    <p>
+                                       ${" "}
+                                       {formatoNumero.format(
+                                          valor.compra * dolar
+                                       )}
+                                    </p>
+                                    <p>U$D {formatoNumero.format(dolar)}</p>
+                                 </div>
+                              )}
                            </div>
                         ) : (
-                           <div className="conversion">
-                              <p>U$D {(dolar / valor.compra).toFixed(2)}</p>
-                              <p>$ {dolar}</p>
+                           <div>
+                              {valor.compra < 1 ? (
+                                 <div className="conversion">
+                                    <p>U$D ---</p>
+                                    <p>$ ---</p>
+                                 </div>
+                              ) : (
+                                 <div className="conversion">
+                                    <p>
+                                       U$D{" "}
+                                       {formatoNumero.format(
+                                          dolar / valor.compra
+                                       )}
+                                    </p>
+                                    <p>$ {formatoNumero.format(dolar)}</p>
+                                 </div>
+                              )}
                            </div>
                         )}
                      </div>
@@ -63,13 +93,17 @@ export default function Dolares({ valores }) {
                      <div>
                         {moneda === "US" ? (
                            <div className="conversion">
-                              <p>$ {(valor.venta * dolar).toFixed(2)}</p>
-                              <p>U$D {dolar}</p>
+                              <p>
+                                 $ {formatoNumero.format(valor.venta * dolar)}
+                              </p>
+                              <p>U$D {formatoNumero.format(dolar)}</p>
                            </div>
                         ) : (
                            <div className="conversion">
-                              <p>U$D {(dolar / valor.venta).toFixed(2)}</p>
-                              <p>$ {dolar}</p>
+                              <p>
+                                 U$D {formatoNumero.format(dolar / valor.venta)}
+                              </p>
+                              <p>$ {formatoNumero.format(dolar)}</p>
                            </div>
                         )}
                      </div>
