@@ -28,7 +28,7 @@
 .dolarCard {
    padding: 1vw;
    border: 0.2rem solid grey;
-   width: 15vw;
+   width: 20vw;
    border-radius: 5px;
    text-align: center;
 }
@@ -41,6 +41,7 @@
 .tituloDolar p {
    margin: 0;
    font-size: 1.3vw;
+   color: grey;
 }
 .valorDolar h3 {
    margin: 0;
@@ -50,6 +51,7 @@
 .valorDolar p {
    margin: 0;
    font-size: 1.3vw;
+   color: forestgreen;
 }
 .fechaHora h3{
    margin: 0;
@@ -59,4 +61,9 @@
 .fechaHora p{
    margin: 0;
    font-size: 0.8vw;
+}
+
+.conversion {
+   display: flex;
+   justify-content: space-around;
 }

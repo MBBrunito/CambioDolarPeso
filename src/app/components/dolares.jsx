@@ -1,17 +1,30 @@
 "use client";
+import { useState } from "react";
 
 export default function Dolares({ valores }) {
+   const [dolar, setDolar] = useState(1);
+   const [moneda, setMoneda] = useState("US");
+
    const handleChange = (event) => {
       event.preventDefault();
+      console.log(event.target.value);
+      setDolar(event.target.value);
+      console.log(dolar);
    };
 
    return (
       <div className="dolares">
          <div className="cambioMoneda">
             <p>Moneda a cotizar: </p>
-            <select name="cambio">
-               <option value="dolar">U$S</option>
-               <option value="pesos">$</option>
+            <select
+               name="cambio"
+               value={moneda}
+               onChange={(event) => {
+                  setMoneda(event.target.value);
+               }}
+            >
+               <option value="US">U$S</option>
+               <option value="AR">$</option>
             </select>
             <input
                type="number"
@@ -19,7 +32,7 @@ export default function Dolares({ valores }) {
                defaultValue={1}
                min={1}
                onChange={(event) => {
-                  handleChange;
+                  handleChange(event);
                }}
             />
          </div>
@@ -33,9 +46,33 @@ export default function Dolares({ valores }) {
                   <hr />
                   <div className="valorDolar">
                      <h3>Valor Compra</h3>
-                     <p>$ {valor.compra}</p>
+                     <div>
+                        {moneda === "US" ? (
+                           <div className="conversion">
+                              <p>$ {(valor.compra * dolar).toFixed(2)}</p>
+                              <p>U$D {dolar}</p>
+                           </div>
+                        ) : (
+                           <div className="conversion">
+                              <p>U$D {(dolar / valor.compra).toFixed(2)}</p>
+                              <p>$ {dolar}</p>
+                           </div>
+                        )}
+                     </div>
                      <h3>Valor Venta</h3>
-                     <p>$ {valor.venta}</p>
+                     <div>
+                        {moneda === "US" ? (
+                           <div className="conversion">
+                              <p>$ {(valor.venta * dolar).toFixed(2)}</p>
+                              <p>U$D {dolar}</p>
+                           </div>
+                        ) : (
+                           <div className="conversion">
+                              <p>U$D {(dolar / valor.venta).toFixed(2)}</p>
+                              <p>$ {dolar}</p>
+                           </div>
+                        )}
+                     </div>
                   </div>
                   <hr />
                   <div className="fechaHora">
