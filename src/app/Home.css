@@ -12,9 +12,28 @@
 .cambioMoneda {
    display: flex;
    padding: 1vw;
+   align-items: center;
 }
 .cambioMoneda p {
+   font-size: 2vw;
    margin: 0;
+}
+.cambioMoneda select {
+   font-size: 2vw;
+}
+.cambioMoneda select option {
+   font-size: 1vw;
+   margin: 0;
+}
+.cambioMoneda input {
+   font-size: 2vw;
+   width: 12vw;
+   text-align: right;
+}
+
+.dolares .cambioMoneda .valorError {
+   color: red;
+   font-size: 1vw;
 }
 
 .listaDolar {
@@ -22,7 +41,7 @@
    flex-wrap: wrap;
    justify-content: center;
    gap: 1vw;
-   width: 70vw;
+   width: 80vw;
 }
 
 .dolarCard {
@@ -66,4 +85,56 @@
 .conversion {
    display: flex;
    justify-content: space-around;
+}
+
+@media (max-width: 767px) {
+   .dolares h1 {
+      font-size: 6vw;
+   }
+   .cambioMoneda p {
+      font-size: 4vw !important;
+   }
+   .cambioMoneda select {
+      font-size: 4vw !important;
+   }
+   .cambioMoneda select option {
+      font-size: 3vw;
+   }
+   .cambioMoneda input {
+      font-size: 4vw !important;
+      width: 18vw;
+   }
+   .dolares .cambioMoneda .valorError {
+      font-size: 2.5vw !important;
+   }
+   .listaDolar {
+      gap: 1vw;
+   }
+   .dolarCard {
+      width: 45vw;
+   }
+   .tituloDolar h3,
+   .valorDolar h3,
+   .fechaHora h3,
+   .tituloDolar p,
+   .valorDolar p,
+   .fechaHora p {
+      font-size: 3vw;
+   }
+}
+
+@media (max-width: 1439px) {
+   .cambioMoneda p {
+      font-size: 1.5vw;
+   }
+   .cambioMoneda select {
+      font-size: 1.5vw;
+   }
+   .cambioMoneda select option {
+      font-size: 1vw;
+   }
+   .cambioMoneda input {
+      font-size: 1.5vw;
+   }
+
 }
