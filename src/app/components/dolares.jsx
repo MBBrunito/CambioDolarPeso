@@ -35,7 +35,7 @@ export default function Dolares({ valores }) {
          if (isNaN(inputValue) || inputValue < 1 || inputValue > 999999999) {
             setDolar(0);
             setLimite(false);
-            setMensajeLargo("El valor debe estar entre 1 y 999.999.99");
+            setMensajeLargo("El valor debe estar entre 1 y 999.999.999");
          } else {
             setLimite(true);
             setDolar(inputValue);
