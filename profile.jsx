@@ -7,7 +7,7 @@ export const contact = [
    {
       red: "Gmail",
       logo: "https://res.cloudinary.com/daoavxvau/image/upload/v1697208981/Redes%20Sociales/gMail_ndgy3f.png",
-      contact: "MarcosBrunoDev@gmail.com",
+      contact: "mailto:MarcosBrunoDev@gmail.com",
    },
    {
       red: "GitHub",

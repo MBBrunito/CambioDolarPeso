@@ -143,7 +143,7 @@ export default function Dolares({ valores }) {
                   </div>
                   <hr />
                   <div className="fechaHora">
-                     <h3>Fecha Atcualización</h3>
+                     <h3>Fecha Actualización</h3>
                      <p>{valor.fechaActualizacion.slice(0, 10)}</p>
                      <p>{valor.fechaActualizacion.slice(11, -8)}</p>
                   </div>
