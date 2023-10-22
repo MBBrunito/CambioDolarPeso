@@ -1,4 +1,5 @@
 import "./Home.css";
+import Footer from "./components/Footer";
 import Dolares from "./components/dolares";
 
 async function dolares() {
@@ -14,6 +15,7 @@ async function HomePage() {
       <div className="dolares">
          <h1>Equivalencia U$S a $ Argentinos</h1>
          <Dolares valores={valores} />
+         <Footer />
       </div>
    );
 }
