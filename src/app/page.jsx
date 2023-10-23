@@ -3,7 +3,8 @@ import Footer from "./components/Footer";
 import Dolares from "./components/dolares";
 
 async function dolares() {
-   const resp = await fetch(process.env.DOLARAPI);
+   const apiUrl = `${process.env.DOLARAPI}?timestamp=${Date.now()}`;
+   const resp = await fetch(apiUrl);
    const data = await resp.json();
    return data;
 }
