@@ -4,13 +4,26 @@ import Dolares from "./components/dolares";
 
 async function dolares() {
    const apiUrl = `${process.env.DOLARAPI}?timestamp=${Date.now()}`;
-   const resp = await fetch(apiUrl);
-   const data = await resp.json();
-   return data;
+   const requestOptions = {
+      method: "GET",
+      headers: {
+         "Cache-Control": "no-store, max-age=0", // Desactiva la caché
+      },
+   };
+
+   try {
+      const resp = await fetch(apiUrl, requestOptions);
+      const data = await resp.json();
+      return data;
+   } catch (error) {
+      console.error("Error al obtener datos del API de Dólar:", error);
+      throw error;
+   }
 }
 
 async function HomePage() {
    const valores = await dolares();
+   console.log(valores);
 
    return (
       <div className="dolares">
