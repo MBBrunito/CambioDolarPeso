@@ -1,6 +1,25 @@
 "use client";
 import { useState } from "react";
 
+async function dolares() {
+   const apiUrl = `${process.env.DOLARAPI}`;
+   const requestOptions = {
+      method: "GET",
+      headers: {
+         "Cache-Control": "no-store", // Desactiva la caché
+      },
+   };
+
+   try {
+      const resp = await fetch(apiUrl, requestOptions);
+      const data = await resp.json();
+      return data;
+   } catch (error) {
+      console.error("Error al obtener datos del API de Dólar:", error);
+      throw error;
+   }
+}
+
 export default function Dolares({ valores }) {
    const [dolar, setDolar] = useState(1);
    const [moneda, setMoneda] = useState("US");
@@ -8,6 +27,9 @@ export default function Dolares({ valores }) {
    const [largo, setLargo] = useState(11);
    const [mensajeLargo, setMensajeLargo] = useState("");
 
+   if (!valores) {
+      return <p>Cargando datos...</p>;
+   }
    // const formatoNumero = new Intl.NumberFormat("es-AR", { style: "decimal" });
    const formatoNumero = new Intl.NumberFormat("es-AR", {
       maximumFractionDigits: 0,
@@ -150,6 +172,7 @@ export default function Dolares({ valores }) {
                </div>
             ))}
          </div>
+         <button onClick={() => dolares()}>Actualizar Datos</button>
       </div>
    );
 }
